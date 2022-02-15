@@ -1,8 +1,11 @@
 package com.example.company_asset.model;
 
+import lombok.Data;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+//@Data
 @Entity
 public class Employee {
     @Id
@@ -10,10 +13,8 @@ public class Employee {
     String name;
 
     public Employee() {
-
-
     }
-
+//
     public Employee(int id, String name) {
         this.id = id;
         this.name = name;

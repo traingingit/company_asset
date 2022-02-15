@@ -6,14 +6,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AssetService {
 
     @Autowired
     AssetRepository assetRepository;
+
     public List<Asset> getAssets() {
         return assetRepository.findAll();
+    }
+
+    public Optional<Asset> getSingleAsset(int asset_id)
+    {
+        return assetRepository.findById(asset_id);
     }
 
     public String addAssets(Asset a) {
@@ -25,4 +32,6 @@ public class AssetService {
         assetRepository.deleteById(asset_id);
         return "Asset Deleted";
     }
+
+
 }

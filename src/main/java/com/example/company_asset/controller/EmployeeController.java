@@ -17,6 +17,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class EmployeeController {
@@ -36,6 +37,12 @@ public class EmployeeController {
     @GetMapping("/employees")
     public List<Employee> getEmployee(){
         return employeeService.getEmployee();
+    }
+
+    @GetMapping("/employees/{employee_id}")
+    public Optional<Employee> getSingleEmployee(@PathVariable int employee_id)
+    {
+        return employeeService.getSingleEmployee(employee_id);
     }
 
 

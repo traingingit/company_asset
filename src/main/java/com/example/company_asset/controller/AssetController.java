@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class AssetController {
@@ -17,6 +18,12 @@ public class AssetController {
     @GetMapping("/assets")
     public List<Asset> getAssets(){
         return assetService.getAssets();
+    }
+
+    @GetMapping("/assets/{asset_id}")
+    public Optional<Asset> getSingleAsset(@PathVariable int asset_id)
+    {
+        return assetService.getSingleAsset(asset_id);
     }
 
     @PostMapping("/assets")
